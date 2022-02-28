@@ -2,7 +2,7 @@
 
 Someday, I thought: "Is it possible to have 12 different programming languages on my PC?".
 
-And this repo is the answer 😂.
+And this repo is the answer 😂. A simple password validator via Bash.
 
 ## Info
 
