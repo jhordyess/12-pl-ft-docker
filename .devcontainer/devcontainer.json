@@ -6,15 +6,15 @@
     "terminal.integrated.defaultProfile.linux": "bash",
     "code-runner.runInTerminal": true,
     "code-runner.executorMap": {
-      "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt && clean",
-      "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt && clean",
+      "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt.exe && $dir$fileNameWithoutExt.exe && clean",
+      "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt.exe && $dir$fileNameWithoutExt.exe && clean",
       "csharp": "cd $dir && mcs $fileName && mono $fileNameWithoutExt.exe && clean",
       "java": "cd $dir && javac $fileName && java $fileNameWithoutExt && clean",
       "python": "python3"
     },
     "code-runner.executorMapByFileExtension": {
-      ".kt": "cd $dir && kotlinc $fileName -include-runtime -d $fileNameWithoutExt.jar && java -jar $fileNameWithoutExt.jar && clean",
+      ".kt": "cd $dir && kotlinc $fileName -include-runtime -d $fileNameWithoutExt.jar && java -jar $fileNameWithoutExt.jar && clean"
     }
   },
-  "remoteUser": "user"
+  "remoteUser": "jhordyess"
 }
