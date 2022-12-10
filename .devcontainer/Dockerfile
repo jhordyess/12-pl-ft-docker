@@ -17,7 +17,7 @@ RUN sudo apt-get install python3 -y
 RUN sudo apt-get install r-base -y
 # Ruby
 RUN sudo apt-get install ruby-full -y
-# Swift 5.6.1
+# Swift 5.7.1
 RUN sudo apt-get install -y wget \
   binutils \
   git \
@@ -35,9 +35,9 @@ RUN sudo apt-get install -y wget \
   tzdata \
   uuid-dev \
   zlib1g-dev
-RUN wget https://download.swift.org/swift-5.7-release/ubuntu2004/swift-5.7-RELEASE/swift-5.7-RELEASE-ubuntu20.04.tar.gz
+RUN wget https://download.swift.org/swift-5.7.1-release/ubuntu2004/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04.tar.gz
 RUN sudo mkdir /usr/share/swift \
-  && sudo tar xzf swift-5.7-RELEASE-ubuntu20.04.tar.gz --directory /usr/share/swift --remove-files --strip-components 1
+  && sudo tar xzf swift-5.7.1-RELEASE-ubuntu20.04.tar.gz --directory /usr/share/swift --remove-files --strip-components 1
 ENV PATH="${PATH}:/usr/share/swift/usr/bin"
 # SDKMAN, Java & Kotlin
 RUN sudo apt-get install -y \
