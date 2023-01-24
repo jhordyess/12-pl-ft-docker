@@ -1,4 +1,4 @@
-FROM jhordyess/ubuntu:20.04
+FROM jhordyess/ubuntu:22.04
 # C
 RUN sudo apt-get install gcc -y
 # Cpp
@@ -17,27 +17,27 @@ RUN sudo apt-get install python3 -y
 RUN sudo apt-get install r-base -y
 # Ruby
 RUN sudo apt-get install ruby-full -y
-# Swift 5.7.1
+# Swift 5.7.3
 RUN sudo apt-get install -y wget \
   binutils \
   git \
   gnupg2 \
   libc6-dev \
-  libcurl4 \
+  libcurl4-openssl-dev \
   libedit2 \
   libgcc-9-dev \
-  libpython2.7 \
+  libpython3.8 \
   libsqlite3-0 \
   libstdc++-9-dev \
-  libxml2 \
+  libxml2-dev \
   libz3-dev \
   pkg-config \
   tzdata \
-  uuid-dev \
+  unzip \
   zlib1g-dev
-RUN wget https://download.swift.org/swift-5.7.1-release/ubuntu2004/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu20.04.tar.gz
+RUN wget https://download.swift.org/swift-5.7.3-release/ubuntu2204/swift-5.7.3-RELEASE/swift-5.7.3-RELEASE-ubuntu22.04.tar.gz
 RUN sudo mkdir /usr/share/swift \
-  && sudo tar xzf swift-5.7.1-RELEASE-ubuntu20.04.tar.gz --directory /usr/share/swift --remove-files --strip-components 1
+  && sudo tar xzf swift-5.7.3-RELEASE-ubuntu22.04.tar.gz --directory /usr/share/swift --remove-files --strip-components 1
 ENV PATH="${PATH}:/usr/share/swift/usr/bin"
 # SDKMAN, Java & Kotlin
 RUN sudo apt-get install -y \
