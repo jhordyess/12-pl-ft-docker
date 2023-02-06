@@ -40,15 +40,11 @@ RUN sudo mkdir /usr/share/swift \
   && sudo tar xzf swift-5.7.3-RELEASE-ubuntu22.04.tar.gz --directory /usr/share/swift --remove-files --strip-components 1
 ENV PATH="${PATH}:/usr/share/swift/usr/bin"
 # SDKMAN, Java & Kotlin
-RUN sudo apt-get install -y \
-  curl \
-  unzip \
-  zip \
-  && curl -s 'https://get.sdkman.io' | bash
+RUN curl -s 'https://get.sdkman.io' | bash
 RUN bash -c 'source "$HOME/.sdkman/bin/sdkman-init.sh" \
   && yes | sdk install java \
   && yes | sdk install kotlin \
   && sdk flush archives \
   && sdk flush temp'
-# Useful alias commands for bash
-RUN echo "alias clean='find /workspaces/ -type f \( -iname \*.class -o -iname \*.jar -o -iname \*.exe \) -delete'" >> ~/.bashrc
+# # Useful alias commands for bash
+RUN echo "alias clean='find /workspaces/ -type f \( -iname \*.class -o -iname \*.jar -o -iname \*.exe \) -delete'" >> ~/.zshrc
