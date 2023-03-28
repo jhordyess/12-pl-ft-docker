@@ -1,4 +1,4 @@
-FROM jhordyess/ubuntu:22.04
+FROM jhordyess/ubuntu
 # C
 RUN sudo apt-get install gcc -y
 # Cpp
