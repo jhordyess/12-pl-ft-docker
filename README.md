@@ -4,7 +4,7 @@ Someday, I thought: "Is it possible to have 12 different programming languages o
 
 And this repo is the answer 😂. A simple password validator via Bash.
 
-## Info
+## Description
 
 This repo contains 12 scripts, and each script solves the same problem but in different programming languages:
 
@@ -21,25 +21,9 @@ This repo contains 12 scripts, and each script solves the same problem but in di
 - Ruby
 - Swift
 
-The need to run each file(interpreters and compilers) is solved with a Docker Container and VSCode.
+The [Dockerfile](/.devcontainer/Dockerfile) file contains the installation scripts for compilers and interpreters. Additionally, I've created the alias `clean` for zsh, which can be used to delete bytecode files such as `class`, `jar`, and `exe`.
 
-## My 3 personal commands
-
-For the container, I created 3 alias commands for bash: `update nosave clean`.
-
-```bash
-# Update, upgrade and autoremove for Ubuntu packages
-update
-# Delete command history in the current Bash terminal
-nosave
-# Clean up all unnecessary bytecode in the remote container
-clean
-```
-
-## Dev Info
-
-- VSCode with [remote containers](https://code.visualstudio.com/docs/remote/containers) (Docker container with Ubuntu)
-- Extension for VSCode [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
+The [devcontainer.json](/.devcontainer/devcontainer.json) file contains configurations for using [dev containers](https://code.visualstudio.com/docs/devcontainers/containers) and ensuring the use of the [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) extension within the container.
 
 ## License
 
