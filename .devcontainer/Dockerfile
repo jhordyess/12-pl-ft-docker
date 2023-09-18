@@ -1,23 +1,36 @@
-FROM jhordyess/ubuntu
-# C
+FROM jhordyess/ubuntu:22.04
+
+# RUN sudo apt-get update --fix-missing
+
+# Install support for C
 RUN sudo apt-get install gcc -y
-# Cpp
+
+# Install supportfor C++
 RUN sudo apt-get install g++ -y
-# CSharp
-RUN sudo apt-get install mono-complete -y
-# Go
+
+# Install support for C#  
+RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install mono-complete -y
+
+# Install support for Go
 RUN sudo apt-get install golang-go -y
-# NodeJS
+
+# Install support for Node.js
 RUN sudo apt-get install nodejs -y
-# PHP
+
+# Install support for PHP
 RUN sudo apt-get install php-cli -y
-# Python 3
+
+# Install support for Python
 RUN sudo apt-get install python3 -y
-# R
+
+# Install support for R
 RUN sudo apt-get install r-base -y
-# Ruby
+
+# Install support for Ruby
 RUN sudo apt-get install ruby-full -y
-# Swift 5.7.3
+
+# Install support for Swift 5.8.1
+# Source: https://www.swift.org/install/linux/#installation-via-tarball
 RUN sudo apt-get install -y wget \
   binutils \
   git \
@@ -35,10 +48,13 @@ RUN sudo apt-get install -y wget \
   tzdata \
   unzip \
   zlib1g-dev
-RUN wget https://download.swift.org/swift-5.7.3-release/ubuntu2204/swift-5.7.3-RELEASE/swift-5.7.3-RELEASE-ubuntu22.04.tar.gz
-RUN sudo mkdir /usr/share/swift \
-  && sudo tar xzf swift-5.7.3-RELEASE-ubuntu22.04.tar.gz --directory /usr/share/swift --remove-files --strip-components 1
+
+RUN wget https://download.swift.org/swift-5.8.1-release/ubuntu2204/swift-5.8.1-RELEASE/swift-5.8.1-RELEASE-ubuntu22.04.tar.gz && \
+  sudo mkdir /usr/share/swift && \
+  sudo tar xzf swift-5.8.1-RELEASE-ubuntu22.04.tar.gz --directory /usr/share/swift --strip-components 1 && \
+  rm swift-5.8.1-RELEASE-ubuntu22.04.tar.gz
 ENV PATH="${PATH}:/usr/share/swift/usr/bin"
+
 # SDKMAN, Java & Kotlin
 RUN curl -s 'https://get.sdkman.io' | bash
 RUN bash -c 'source "$HOME/.sdkman/bin/sdkman-init.sh" \
@@ -46,5 +62,6 @@ RUN bash -c 'source "$HOME/.sdkman/bin/sdkman-init.sh" \
   && yes | sdk install kotlin \
   && sdk flush archives \
   && sdk flush temp'
-# # Useful alias commands for bash
+
+# Useful alias commands for bash
 RUN echo "alias clean='find /workspaces/ -type f \( -iname \*.class -o -iname \*.jar -o -iname \*.exe \) -delete'" >> ~/.zshrc
